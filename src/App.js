@@ -1,7 +1,8 @@
 import app from './firebase';
-import { getDatabase, ref, onValue, push, remove } from 'firebase/database';
+import { getDatabase, ref, onValue, push } from 'firebase/database';
 import './App.css';
 import { useEffect, useState } from 'react';
+import DisplayHabits from './components/DisplayHabits';
 
 function App() {
 	const [habitDatabase, setHabitDatabase] = useState([]);
@@ -58,33 +59,10 @@ function App() {
 		setUserInput('');
 	};
 
-	// this event will fire when the Remove button is clicked
-	const handleRemove = (key) => {
-		// create a reference to our database
-		// this time though, instead of pointing at the whole database, we make our dbRef point to the specific node of the book we want to remove
-		const database = getDatabase(app);
-		const dbRef = ref(database, `/${key}`);
-
-		// remove the item from the database
-		remove(dbRef);
-	};
-
 	return (
 		<div>
 			<h1>Hello World</h1>
-			<ul>
-				{habitDatabase.map((book) => {
-					return (
-						<li key={book.key}>
-							{book.name} {book.key}
-							<button onClick={() => handleRemove(book.key)}>
-								{' '}
-								Remove{' '}
-							</button>
-						</li>
-					);
-				})}
-			</ul>
+			<DisplayHabits data={habitDatabase} />
 			<form action="submit">
 				<label htmlFor="newBook">Add a book to your bookshelf</label>
 				<input
