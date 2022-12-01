@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 
 function App() {
 	const [habitDatabase, setHabitDatabase] = useState([]);
+	const [userInput, setUserInput] = useState('');
 
 	useEffect(() => {
 		// create a variable that holds our database details
@@ -23,17 +24,77 @@ function App() {
 			// here we store the response from our query to Firebase inside of a variable called data.
 			// .val() is a Firebase method that gets us the information we want
 			const data = response.val();
+
+			// here we're looping through the data we got from Firebase and pushing it into our newState array
+			for (let key in data) {
+				newState.push({ key: key, name: data[key] });
+			}
+
+			// here we're setting the state of our habitDatabase to the newState we just created
+			setHabitDatabase(newState);
 		});
 	}, []);
+
+	// this event will fire every time there is a change in the input it is attached to
+	const handleInputChange = (e) => {
+		// we're telling React to update the state of our `App` component to be
+		// equal to whatever is currently the value of the input field
+		setUserInput(e.target.value);
+	};
+
+	// this event will fire when the form is submitted
+	const handleSubmit = (e) => {
+		// this prevents the page from refreshing when the form is submitted
+		e.preventDefault();
+
+		// create a reference to our database
+		const database = getDatabase(app);
+		const dbRef = ref(database);
+
+		// push the value of the `userInput` state to the database
+		push(dbRef, userInput);
+
+		// reset the state to an empty string
+		setUserInput('');
+	};
+
+	// this event will fire when the Remove button is clicked
+	const handleRemove = (key) => {
+		// create a reference to our database
+		// this time though, instead of pointing at the whole database, we make our dbRef point to the specific node of the book we want to remove
+		const database = getDatabase(app);
+		const dbRef = ref(database, `/${key}`);
+
+		// remove the item from the database
+		remove(dbRef);
+	};
 
 	return (
 		<div>
 			<h1>Hello World</h1>
 			<ul>
-				{habitDatabase.map((day) => {
-					return <li>{day}</li>;
+				{habitDatabase.map((book) => {
+					return (
+						<li key={book.key}>
+							{book.name} {book.key}
+							<button onClick={() => handleRemove(book.key)}>
+								{' '}
+								Remove{' '}
+							</button>
+						</li>
+					);
 				})}
 			</ul>
+			<form action="submit">
+				<label htmlFor="newBook">Add a book to your bookshelf</label>
+				<input
+					type="text"
+					id="newBook"
+					onChange={handleInputChange}
+					value={userInput}
+				/>
+				<button onClick={handleSubmit}>Add Book</button>
+			</form>
 		</div>
 	);
 }
