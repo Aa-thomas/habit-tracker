@@ -15,11 +15,25 @@ const DisplayHabits = ({ data }) => {
 		remove(dbRef);
 	};
 
+	const updateCount = (habitKey, delta) => {
+		const database = getDatabase(app);
+		const dbRef = ref(database, `/${habitKey}`);
+		data.map((habit) => {
+			if (habit.key === habitKey) {
+				habit.count += delta;
+			}
+			console.log(habit);
+			return habit;
+		});
+	};
+
 	return (
 		<ul>
 			{data.map((habit) => {
 				return (
 					<Habit
+						count={habit.count}
+						updateCount={updateCount}
 						key={habit.key}
 						habitKey={habit.key}
 						habitName={habit.name}

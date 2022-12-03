@@ -1,23 +1,11 @@
-import { useState } from 'react';
-
-const Habit = ({ data, key, habitName, handleRemove }) => {
-	const [count, setCount] = useState(0);
-	const [completed, setCompleted] = useState(false);
-
-	const handleCompleted = () => {
-		setCompleted(!completed);
-		setCount(count + 1);
-		console.log(completed);
-	};
-
+const Habit = ({ count, updateCount, habitKey, habitName, handleRemove }) => {
 	return (
-		<li key={key}>
+		<li>
 			<p>{habitName}</p>
-			<p>
-				{count} {completed}
-			</p>
-			<button onClick={handleCompleted}>Completed</button>
-			<button onClick={() => handleRemove(key)}>Remove</button>
+			<p>{count}</p>
+			<button onClick={() => updateCount(habitKey, +1)}>up</button>
+			<button onClick={() => updateCount(habitKey, -1)}>down</button>
+			<button onClick={() => handleRemove(habitKey)}>Remove</button>
 		</li>
 	);
 };

@@ -18,7 +18,6 @@ function App() {
 		// add an event listener to that variable that will fire
 		// from the database, and call that data 'response'.
 		onValue(dbRef, (response) => {
-			console.log(response.val());
 			// here we're creating a variable to store the new state we want to introduce to our app
 			const newState = [];
 
@@ -28,7 +27,11 @@ function App() {
 
 			// here we're looping through the data we got from Firebase and pushing it into our newState array
 			for (let key in data) {
-				newState.push({ key: key, name: data[key] });
+				newState.push({
+					name: data[key],
+					count: 0,
+					key: key,
+				});
 			}
 
 			// here we're setting the state of our habitDatabase to the newState we just created
@@ -53,7 +56,8 @@ function App() {
 		const dbRef = ref(database);
 
 		// push the value of the `userInput` state to the database
-		push(dbRef, userInput);
+		if (userInput.trim()) push(dbRef, userInput);
+		else alert('Please enter a habit');
 
 		// reset the state to an empty string
 		setUserInput('');
@@ -61,7 +65,7 @@ function App() {
 
 	return (
 		<div>
-			<h1>Hello World</h1>
+			<h1>Habit Tracker</h1>
 			<DisplayHabits data={habitDatabase} />
 			<form action="submit">
 				<label htmlFor="newBook">Add a book to your bookshelf</label>
