@@ -1,11 +1,14 @@
 import app from './firebase';
-import { getDatabase, ref, onValue, push } from 'firebase/database';
+import { getDatabase, ref, onValue, push, set } from 'firebase/database';
 import './App.css';
 import { useEffect, useState } from 'react';
+import Header from './components/Header';
+import Habit from './components/Habit';
 import DisplayHabits from './components/DisplayHabits';
+import { doc, setDoc } from 'firebase/firestore';
 
 function App() {
-	const [habitDatabase, setHabitDatabase] = useState([]);
+	const [habitList, setHabitList] = useState([]);
 	const [userInput, setUserInput] = useState('');
 
 	useEffect(() => {
@@ -29,13 +32,15 @@ function App() {
 			for (let key in data) {
 				newState.push({
 					name: data[key],
-					count: 0,
+					score: 0,
 					key: key,
 				});
 			}
 
-			// here we're setting the state of our habitDatabase to the newState we just created
-			setHabitDatabase(newState);
+			// here we're setting the state of our habitList to the newState we just created
+			setHabitList(newState);
+
+			console.log('useEffect fired', newState);
 		});
 	}, []);
 
@@ -47,26 +52,29 @@ function App() {
 	};
 
 	// this event will fire when the form is submitted
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		// this prevents the page from refreshing when the form is submitted
 		e.preventDefault();
 
 		// create a reference to our database
 		const database = getDatabase(app);
-		const dbRef = ref(database);
+		const db = ref(database);
 
 		// push the value of the `userInput` state to the database
-		if (userInput.trim()) push(dbRef, userInput);
-		else alert('Please enter a habit');
+		// if (userInput.trim()) push(dbRef, userInput);
+		// else alert('Please enter a habit');
+		push(db, userInput);
 
 		// reset the state to an empty string
 		setUserInput('');
 	};
 
 	return (
-		<div>
-			<h1>Habit Tracker</h1>
-			<DisplayHabits data={habitDatabase} />
+		<div className="habit-board">
+			<Header title={'Habit Tracker'} totalHabits={habitList.length} />
+
+			{/* Habit List */}
+			<DisplayHabits habitList={habitList} setHabitList={setHabitList} />
 			<form action="submit">
 				<label htmlFor="newBook">Add a book to your bookshelf</label>
 				<input

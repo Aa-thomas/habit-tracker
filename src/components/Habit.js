@@ -1,12 +1,30 @@
-const Habit = ({ count, updateCount, habitKey, habitName, handleRemove }) => {
+import { useState } from 'react';
+import Counter from './Counter';
+
+const Habit = ({
+	habitName,
+	score,
+	handleRemove,
+	habitKey,
+	handleScoreChange,
+}) => {
 	return (
-		<li>
-			<p>{habitName}</p>
-			<p>{count}</p>
-			<button onClick={() => updateCount(habitKey, +1)}>up</button>
-			<button onClick={() => updateCount(habitKey, -1)}>down</button>
-			<button onClick={() => handleRemove(habitKey)}>Remove</button>
-		</li>
+		<div className="habit">
+			<span className="habit-name">
+				<button
+					className="remove-habit"
+					onClick={() => handleRemove(habitKey)}
+				>
+					✖
+				</button>
+				{habitName}
+			</span>
+			<Counter
+				score={score}
+				handleScoreChange={handleScoreChange}
+				habitKey={habitKey}
+			/>
+		</div>
 	);
 };
 
