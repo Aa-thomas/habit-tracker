@@ -8,13 +8,14 @@ import {
 	collection,
 	deleteDoc,
 	doc,
-
 	getDocs,
 	onSnapshot,
-
 	setDoc,
-
 } from 'firebase/firestore';
+import { BarChart } from './components/BarChart';
+import { PieChart } from './components/PieChart';
+import { LineChart } from './components/LineChart';
+import { getDate } from 'date-fns';
 
 function App() {
 	const [habitList, setHabitList] = useState([]);
@@ -24,13 +25,22 @@ function App() {
 	useEffect(() => {
 		const getHabits = async () => {
 			const data = await getDocs(collectionRef);
-			setHabitList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+			setHabitList(
+				data.docs.map((doc) => ({
+					...doc.data(),
+					id: doc.id,
+				}))
+			);
 		};
 		getHabits();
 
 		onSnapshot(collectionRef, (snapshot) => {
 			setHabitList(
-				snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+				snapshot.docs.map((doc) => ({
+					...doc.data(),
+					id: doc.id,
+					date: new Date(),
+				}))
 			);
 		});
 	}, []);
@@ -43,7 +53,9 @@ function App() {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		addToFirestoreDB(userInput, setHabitList, habitList);
+		if (userInput.trim())
+			addToFirestoreDB(userInput, setHabitList, habitList);
+		else alert('Please enter a habit');
 		setUserInput('');
 	};
 
@@ -96,6 +108,10 @@ function App() {
 				/>
 				<button onClick={handleSubmit}>Add Habit</button>
 			</form>
+			{console.log(habitList)}
+			<BarChart data={habitList} />
+			<PieChart data={habitList} />
+			<LineChart data={habitList} />
 		</div>
 	);
 }
