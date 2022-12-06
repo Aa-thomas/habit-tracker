@@ -1,23 +1,40 @@
+/**
+ * @license
+ * Copyright 2022 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
-import { getAnalytics } from 'firebase/analytics';
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { getAuth } from 'firebase/auth';
+import { getStorage } from 'firebase/storage';
+import { getFirestore } from 'firebase/firestore';
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-	apiKey: 'AIzaSyBYThwGnq_auMj5xRaq3gptA_WG1DdpxWU',
-	authDomain: 'habit-tracker-fs.firebaseapp.com',
-	projectId: 'habit-tracker-fs',
-	storageBucket: 'habit-tracker-fs.appspot.com',
-	messagingSenderId: '81169445377',
-	appId: '1:81169445377:web:7e0250ffdbcfa6ba6b0600',
-	measurementId: 'G-5ZFFYXWJYX',
+	apiKey: 'AIzaSyCAUkZJLEl8Xa0NenTQTpeIqCe3RDgYjnw',
+	authDomain: 'expense-tracker-88ec0.firebaseapp.com',
+	projectId: 'expense-tracker-88ec0',
+	storageBucket: 'expense-tracker-88ec0.appspot.com',
+	messagingSenderId: '683577511790',
+	appId: '1:683577511790:web:7d900e1336d47dc9e4bb7f',
+	measurementId: 'G-89WQ1E52J5',
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-
-export default app;
+export const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
+export const storage = getStorage(app);
+export const firestoreDB = getFirestore(app);

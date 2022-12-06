@@ -6,7 +6,8 @@ const Habit = ({
 	score,
 	handleRemove,
 	habitKey,
-	handleScoreChange,
+	incrementScore,
+	decrementScore,
 }) => {
 	return (
 		<div className="habit">
@@ -21,7 +22,8 @@ const Habit = ({
 			</span>
 			<Counter
 				score={score}
-				handleScoreChange={handleScoreChange}
+				incrementScore={() => incrementScore(habitKey, 1)}
+				decrementScore={() => decrementScore(habitKey, -1)}
 				habitKey={habitKey}
 			/>
 		</div>
