@@ -3,13 +3,13 @@ import { useState, useEffect } from 'react';
 import { BarChart } from './components/BarChart';
 import { PieChart } from './components/PieChart';
 import { LineChart } from './components/LineChart';
+// eslint-disable-next-line
 import Chart from 'chart.js/auto';
 import { Routes, Route } from 'react-router-dom';
 import DisplayHabits from './components/DisplayHabits';
 import { collection, getDocs, onSnapshot } from 'firebase/firestore';
 import { firestoreDB } from './firebase';
 import Header from './components/Header';
-import SignIn from './components/SignIn';
 
 function App() {
 	const [habitList, setHabitList] = useState([]);
@@ -35,6 +35,7 @@ function App() {
 				}))
 			);
 		});
+		// eslint-disable-next-line
 	}, []);
 
 	return (
