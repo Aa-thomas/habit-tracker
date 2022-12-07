@@ -9,10 +9,10 @@ import DisplayHabits from './components/DisplayHabits';
 import { collection, getDocs, onSnapshot } from 'firebase/firestore';
 import { firestoreDB } from './firebase';
 import Header from './components/Header';
+import SignIn from './components/SignIn';
 
 function App() {
 	const [habitList, setHabitList] = useState([]);
-
 	const collectionRef = collection(firestoreDB, 'habits');
 
 	useEffect(() => {
@@ -43,6 +43,15 @@ function App() {
 			<Routes>
 				<Route
 					path="/"
+					element={
+						<DisplayHabits
+							habitList={habitList}
+							setHabitList={setHabitList}
+						/>
+					}
+				/>
+				<Route
+					path="/habits"
 					element={
 						<DisplayHabits
 							habitList={habitList}
