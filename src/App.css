@@ -8,10 +8,12 @@ html { box-sizing: border-box;}
 .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; border: 0; padding: 0; white-space: nowrap; clip-path: inset(100%); clip: rect(0 0 0 0); overflow: hidden;}
 
 body {
-  background: #e8e7e7; 
+  background: #C7BCF8;
   font-family: arial;
   text-transform: uppercase;
   height: 100vh;
+  
+  
 }
 
 header {
@@ -111,7 +113,6 @@ svg {
   transform-origin: 50% 50%;
 }
 
-.not
 
 @keyframes grow {
   50% { transform: scale(1.4) rotate(-3deg); }
@@ -126,6 +127,7 @@ svg {
   box-shadow: 0 2px 0 rgb(133, 104, 250);
   border-radius: 6px;
   overflow: hidden;
+  max-width: 1200px;
 }
 
 .habit {
