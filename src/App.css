@@ -90,12 +90,16 @@ input[type=submit] {
   cursor: pointer;
 }
 
-button, .submit , 
+button, 
 input[type=submit] {
-  background-color: #C7BCF8;
+  
   outline: none;
   transition: background-color 0.2s ease,
               color 0.2s ease;
+}
+
+.submit  {
+background-color: #C7BCF8;
 }
 
 /* ICONS */
