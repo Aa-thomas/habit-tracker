@@ -11,6 +11,7 @@ body {
   background: #e8e7e7; 
   font-family: arial;
   text-transform: uppercase;
+  height: 100vh;
 }
 
 header {
@@ -67,6 +68,10 @@ input[type=text]:focus{
   background-color: rgba(0, 0, 0, 0.2);
 }
 
+label {
+  color: white;
+}
+
 input[type=submit] {
   display: block;
   font-size: .6em;
@@ -83,8 +88,9 @@ input[type=submit] {
   cursor: pointer;
 }
 
-button, 
+button, .submit , 
 input[type=submit] {
+  background-color: #C7BCF8;
   outline: none;
   transition: background-color 0.2s ease,
               color 0.2s ease;
@@ -104,6 +110,8 @@ svg {
   animation: grow 0.35s ease-in-out;
   transform-origin: 50% 50%;
 }
+
+.not
 
 @keyframes grow {
   50% { transform: scale(1.4) rotate(-3deg); }
@@ -159,9 +167,6 @@ svg {
   }
 
 .stats,
-.stopwatch {
-  width: 170px;
-}
 
 .stats {
   margin: 0 0 0 28px;
@@ -177,45 +182,6 @@ svg {
 
   .stats td:last-child {
     text-align: left;
-  }
-
-.stopwatch {
-  padding: 15px 10px 5px 10px;
-  margin: -5px -10px -5px 10px;
-  background: #5B45B9;
-}
-
-  .stopwatch-time {
-    display: block;
-    font-family: monospace;
-    font-size: 2.15em;
-  }
-
-  .stopwatch button {
-    margin: 8px 5px;
-    background-color: #44338D;
-    border-radius: 5px;
-    padding: 7px 8px;
-    border: none;
-    color: #fff;
-    letter-spacing: 2px;
-    font-weight: bold;
-    text-shadow: none;
-    text-transform: uppercase;
-  }
-
-  .stopwatch button:hover,
-  input[type=submit]:hover {
-    background: #fff;
-    color: #44338D;
-    cursor: pointer;
-  }
-
-  .stopwatch h2 {
-    font-size: .6em;
-    margin: 0;
-    font-weight: normal;
-    letter-spacing: 2px;
   }
 
 .counter {
@@ -253,4 +219,15 @@ svg {
     font-family: monospace;
     font-size: 2em;
     line-height: 2em;
+  }
+
+  @media (max-width: 600px) {
+    .counter-score {
+      font-size: 1.5em;
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+    }
   }

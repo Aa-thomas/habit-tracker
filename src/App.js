@@ -35,13 +35,11 @@ function App() {
 				}))
 			);
 		});
-
-		console.log('habitList', habitList);
 	}, []);
 
 	return (
 		<div className="habit-board">
-			<Header title={'Habit Tracker'} totalHabits={habitList.length} />
+			<Header title={'Habit Tracker'} habitList={habitList} />
 			<Routes>
 				<Route
 					path="/"

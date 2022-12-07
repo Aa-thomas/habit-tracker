@@ -1,4 +1,5 @@
 import Counter from './Counter';
+import HighScore from './HighScore';
 
 const Habit = ({
 	habitName,
@@ -7,6 +8,7 @@ const Habit = ({
 	habitKey,
 	incrementScore,
 	decrementScore,
+	isHighScore,
 }) => {
 	return (
 		<div className="habit">
@@ -17,6 +19,7 @@ const Habit = ({
 				>
 					✖
 				</button>
+				<HighScore isHighScore={isHighScore} />
 				{habitName}
 			</span>
 			<Counter
