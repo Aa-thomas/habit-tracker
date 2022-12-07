@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import Counter from './Counter';
 
 const Habit = ({
@@ -25,6 +24,7 @@ const Habit = ({
 				incrementScore={() => incrementScore(habitKey, 1)}
 				decrementScore={() => decrementScore(habitKey, -1)}
 				habitKey={habitKey}
+				key={habitKey}
 			/>
 		</div>
 	);
