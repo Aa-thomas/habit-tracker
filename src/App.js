@@ -1,13 +1,14 @@
 import './App.css';
 import { useState, useEffect } from 'react';
-import Header from './components/Header';
 import { BarChart } from './components/BarChart';
 import { PieChart } from './components/PieChart';
 import { LineChart } from './components/LineChart';
+import Chart from 'chart.js/auto';
 import { Routes, Route } from 'react-router-dom';
 import DisplayHabits from './components/DisplayHabits';
 import { collection, getDocs, onSnapshot } from 'firebase/firestore';
 import { firestoreDB } from './firebase';
+import Header from './components/Header';
 
 function App() {
 	const [habitList, setHabitList] = useState([]);
