@@ -24,8 +24,8 @@ const Habit = ({
 			</span>
 			<Counter
 				score={score}
-				incrementScore={() => incrementScore(habitKey, 1)}
-				decrementScore={() => decrementScore(habitKey, -1)}
+				incrementScore={() => incrementScore(habitKey, score)}
+				decrementScore={() => decrementScore(habitKey, score)}
 				habitKey={habitKey}
 				key={habitKey}
 			/>

@@ -1,5 +1,5 @@
-/* ELEMENT STYLES -------------------- */
-html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,footer,header,nav,section{display:block}h1{font-size:2em;margin:.67em 0}figcaption,figure,main{display:block}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent;-webkit-text-decoration-skip:objects}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}dfn{font-style:italic}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}audio,video{display:inline-block}audio:not([controls]){display:none;height:0}img{border-style:none}svg:not(:root){overflow:hidden}button,input,optgroup,select,textarea{font-family:sans-serif;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}button,html [type=button],[type=reset],[type=submit]{-webkit-appearance:button}button::-moz-focus-inner,[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner{border-style:none;padding:0}button:-moz-focusring,[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{display:inline-block;vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details,menu{display:block}summary{display:list-item}canvas{display:inline-block}template{display:none}[hidden]{display:none}
+/* ELremENT STYLES -------------------- */
+html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,footer,header,nav,section{display:block}h1{font-size:2rem;margin:.67rem 0}figcaption,figure,main{display:block}figure{margin:1rem 40px}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1rem}a{background-color:transparent;-webkit-text-decoration-skip:objects}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1rem}dfn{font-style:italic}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25rem}sup{top:-.5rem}audio,video{display:inline-block}audio:not([controls]){display:none;height:0}img{border-style:none}svg:not(:root){overflow:hidden}button,input,optgroup,select,textarea{font-family:sans-serif;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}button,html [type=button],[type=reset],[type=submit]{-webkit-appearance:button}button::-moz-focus-inner,[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner{border-style:none;padding:0}button:-moz-focusring,[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35rem .75rem .625rem}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{display:inline-block;vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details,menu{display:block}summary{display:list-itrem}canvas{display:inline-block}tremplate{display:none}[hidden]{display:none}
 
 html { box-sizing: border-box;}
 
@@ -21,14 +21,14 @@ header {
   padding: 5px 10px;
   text-align: center;
   display: flex;
-  align-items: center;
+  align-itrems: center;
   background-color: #8063FA;
   border-bottom: solid 2px #D4CAFF;
 }
 
 header h1 {
   flex-grow: 1;
-  font-size: 1.5em;
+  font-size: 1.5rem;
   letter-spacing: 2px;
   font-weight: normal;
 }
@@ -77,7 +77,7 @@ label.habit-label {
 
 input[type=submit] {
   display: block;
-  font-size: .6em;
+  font-size: .6rem;
   margin: 15px 15px 15px 0; 
   padding: 10px;
   background-color: #44338D;
@@ -137,7 +137,7 @@ svg {
 
 .habit {
   display: flex;
-  font-size: 1.2em;
+  
   border-bottom: solid 2px #EEEEEE;
   letter-spacing: 2px;
 }
@@ -157,12 +157,12 @@ svg {
 
   .habit-name {
     flex-grow: 1;
-    line-height: 3.5em;
+    line-height: 3.5rem;
     padding-left: 10px;
   }
 
-  .remove-habit {
-    font-size: 1.15em;
+  .rremove-habit {
+    font-size: 1.15rem;
     border: none;
     outline: none;
     visibility: hidden;
@@ -184,7 +184,7 @@ svg {
     text-align: right;
     font-weight: normal;
     letter-spacing: 2px;
-    font-size: .7em;
+    font-size: .7rem;
   }
 
   .stats td:last-child {
@@ -198,7 +198,7 @@ svg {
 
   .counter-action {
     border: none;
-    font-size: 1.15em;
+    font-size: 1.15rem;
     font-weight: bold;
     color: #B0AEBA;
     background-color: #DCDCDC;
@@ -212,11 +212,11 @@ svg {
     color: #fff;
   }
 
-  .increment:hover {
+  .incrrement:hover {
     background: #83D97C;
   }
 
-  .decrement:hover {
+  .decrrement:hover {
     background: #EF5350;
   }
 
@@ -224,13 +224,13 @@ svg {
     flex-grow: 1;
     text-align: center;
     font-family: monospace;
-    font-size: 2em;
-    line-height: 2em;
+    font-size: 2rem;
+    line-height: 2rem;
   }
 
   @media (max-width: 600px) {
     .counter-score {
-      font-size: 1.5em;
+      font-size: 1.5rem;
     }
 
     header {

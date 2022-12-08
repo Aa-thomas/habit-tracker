@@ -23,7 +23,7 @@ const DisplayHabits = ({ habitList, setHabitList }) => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		if (userInput.trim() && userInput.length < 20)
-			addToFirestoreDB(userInput, setHabitList, habitList);
+			await addToFirestoreDB(userInput, setHabitList, habitList);
 		else alert('Please enter a valid habit name between 1 - 20 characters');
 
 		setUserInput('');
@@ -35,15 +35,15 @@ const DisplayHabits = ({ habitList, setHabitList }) => {
 	};
 
 	// Increment score by 1
-	const incrementScore = async (id, delta) => {
+	const incrementScore = async (id, score) => {
 		const habitRef = doc(firestoreDB, 'habits', id);
-		const newScore = { amount: delta + 1 };
+		const newScore = { amount: score + 1 };
 		await setDoc(habitRef, newScore, { merge: true });
 	};
 
-	const decrementScore = async (id, delta) => {
+	const decrementScore = async (id, score) => {
 		const habitRef = doc(firestoreDB, 'habits', id);
-		const newScore = { amount: delta - 1 };
+		const newScore = { amount: score - 1 };
 		await setDoc(habitRef, newScore, { merge: true });
 	};
 
