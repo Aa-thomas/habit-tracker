@@ -1,4 +1,3 @@
-import '../App.css';
 import Habit from './Habit';
 import { firestoreDB } from '../firebase';
 import { addToFirestoreDB } from '../firestore';
@@ -75,7 +74,7 @@ const DisplayHabits = ({ habitList, setHabitList }) => {
 				})}
 			</ul>
 
-			<form className="habit-form">
+			<form action="submit" className="habit-form" onSubmit={handleSubmit}>
 				<label className="habit-label" htmlFor="newHabit">
 					Add a Habit
 				</label>
