@@ -1,19 +1,23 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { getAuth } from 'firebase/auth';
+import { getStorage } from 'firebase/storage';
+import { getFirestore } from 'firebase/firestore';
 
 // Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-	apiKey: 'AIzaSyCFpRpKUy-shxzE8ys8pC4t_F0gs-Vvb0w',
-	authDomain: 'habit-tracker-29e88.firebaseapp.com',
-	projectId: 'habit-tracker-29e88',
-	storageBucket: 'habit-tracker-29e88.appspot.com',
-	messagingSenderId: '737713719353',
-	appId: '1:737713719353:web:a033298186113473eb65e8',
+	apiKey: 'AIzaSyCAUkZJLEl8Xa0NenTQTpeIqCe3RDgYjnw',
+	authDomain: 'expense-tracker-88ec0.firebaseapp.com',
+	projectId: 'expense-tracker-88ec0',
+	storageBucket: 'expense-tracker-88ec0.appspot.com',
+	messagingSenderId: '683577511790',
+	appId: '1:683577511790:web:7d900e1336d47dc9e4bb7f',
+	measurementId: 'G-89WQ1E52J5',
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-
-export default app;
+export const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
+export const storage = getStorage(app);
+export const firestoreDB = getFirestore(app);
