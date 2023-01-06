@@ -1,6 +1,5 @@
-import Counter from './Counter';
 import HighScore from './HighScore';
-
+import Counter from './Counter';
 const Habit = ({
 	habitName,
 	score,

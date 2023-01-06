@@ -1,4 +1,4 @@
-import { addDoc, collection, deleteDoc } from 'firebase/firestore';
+import { addDoc, collection, deleteDoc, doc } from 'firebase/firestore';
 import { firestoreDB } from './firebase';
 
 // import { getDownloadURL } from '../../habit-app/firebase/storage';
@@ -20,5 +20,5 @@ export function addToFirestoreDB(params, setHabitList, habitList) {
 }
 
 export function deleteFromFirestoreDB(id) {
-	deleteDoc(collection(firestoreDB, nameOfCollection), id);
+	deleteDoc(doc(firestoreDB, nameOfCollection), id);
 }

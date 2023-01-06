@@ -100,7 +100,7 @@ input[type=submit] {
 }
 
 .submit  {
-background-color: #C7BCF8;
+  background-color: #C7BCF8;
 }
 
 /* ICONS */
@@ -161,7 +161,7 @@ svg {
     padding-left: 10px;
   }
 
-  .rremove-habit {
+  .remove-habit {
     font-size: 1.15rem;
     border: none;
     outline: none;
@@ -212,11 +212,11 @@ svg {
     color: #fff;
   }
 
-  .incrrement:hover {
+  .increment:hover {
     background: #83D97C;
   }
 
-  .decrrement:hover {
+  .decrement:hover {
     background: #EF5350;
   }
 
