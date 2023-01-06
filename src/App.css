@@ -178,6 +178,7 @@ svg {
 .stats {
   margin: 0 0 0 28px;
   font-weight: normal;
+  opacity: 0
 }
 
   .stats td:first-child {
