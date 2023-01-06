@@ -12,7 +12,7 @@ body {
   font-family: arial;
   text-transform: uppercase;
   height: 100vh;
-  
+  padding: 5px 0
   
 }
 
@@ -127,8 +127,8 @@ svg {
 
 .habit-board {
   background: #fff;
-  width: 99%;
-  margin: 0 auto;
+  width: 90%;
+  margin: 5px auto;
   box-shadow: 0 2px 0 rgb(133, 104, 250);
   border-radius: 6px;
   overflow: hidden;
@@ -178,6 +178,7 @@ svg {
 .stats {
   margin: 0 0 0 28px;
   font-weight: normal;
+  opacity: 0
 }
 
   .stats td:first-child {
@@ -236,5 +237,9 @@ svg {
     header {
       display: flex;
       flex-direction: column;
+    }
+
+    body {
+      padding: 0;
     }
   }
