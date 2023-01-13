@@ -15,28 +15,28 @@ function App() {
 	const [habitList, setHabitList] = useState([]);
 	const collectionRef = collection(firestoreDB, 'habits');
 
-		useEffect(() => {
-			const getHabits = async () => {
-				const data = await getDocs(collectionRef);
-				setHabitList(
-					data.docs.map((doc) => ({
-						...doc.data(),
-						id: doc.id,
-					}))
-				);
-			};
-			getHabits();
+	useEffect(() => {
+		const getHabits = async () => {
+			const data = await getDocs(collectionRef);
+			setHabitList(
+				data.docs.map((doc) => ({
+					...doc.data(),
+					id: doc.id,
+				}))
+			);
+		};
+		getHabits();
 
-			onSnapshot(collectionRef, (snapshot) => {
-				setHabitList(
-					snapshot.docs.map((doc) => ({
-						...doc.data(),
-						id: doc.id,
-					}))
-				);
-			});
-			// eslint-disable-next-line
-		}, []);
+		onSnapshot(collectionRef, (snapshot) => {
+			setHabitList(
+				snapshot.docs.map((doc) => ({
+					...doc.data(),
+					id: doc.id,
+				}))
+			);
+		});
+		// eslint-disable-next-line
+	}, []);
 
 	return (
 		<div className="habit-board">
@@ -62,7 +62,7 @@ function App() {
 				/>
 				<Route path="/barchart" element={<BarChart data={habitList} />} />
 				<Route path="/piechart" element={<PieChart data={habitList} />} />
-				<Route path="/linechart" element={<LineChart data={habitList} />} />
+				{/* <Route path="/linechart" element={<LineChart data={habitList} />} /> */}
 			</Routes>
 		</div>
 	);

@@ -20,9 +20,9 @@ const Header = ({ title, habitList }) => {
 				<Link to="/piechart">
 					<PieChartIcon />
 				</Link>
-				<Link to="/linechart">
+				{/* <Link to="/linechart">
 					<ShowChartIcon />
-				</Link>
+				</Link> */}
 			</div>
 		</header>
 	);
