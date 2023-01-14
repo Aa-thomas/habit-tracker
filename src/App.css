@@ -237,7 +237,6 @@ svg {
 
   form button.submit {
     font-size: clamp(0.6rem, 2vw, 1.2rem);
-    border: solid 2px red;
   }
 
   @media (max-width: 600px) {
